@@ -10,28 +10,30 @@
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
+  <nav class='navbar navbar-expand-lg bg-light'>
+      <div class='container-fluid'>
+          <button
+              class='navbar-toggler collapsed'
+              type='button'
+              data-bs-toggle='collapse'
+              data-bs-target='#navbarTogglerDemo01'
+              aria-controls='navbarTogglerDemo01'
+              aria-expanded='false'
+              aria-label='Toggle navigation'
+          >
+              <span class='navbar-toggler-icon'></span>
+          </button>
+  <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+          <a href="/profile">profile</a> |
+          <button class="no-button" id="logout">logout</button>
+          {{else}}
+          <a href="/login">login</a>
+          {{/if}}
+          
+  </nav>
 
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-
-    <main class="container container-fluid mt-5">
-
-      {{{ body }}}
-    </main>
-
-
-    <footer>
-
-    </footer>
-  </div>
+  {{{ body }}}
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
